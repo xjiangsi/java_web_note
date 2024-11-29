@@ -47,20 +47,7 @@
                     Git是用C语言写成，它是目前世界上最先进的分布式版本控制系统。</h6>
                     <h3>安装Git</h3>
                     <p>下载地址：https://git-scm.com/downloads</p>
-                    <p>安装完成后，在命令行中输入git命令，如果出现版本信息，则说明安装成功。</p>
                     <h3>配置Git</h3>
-                    <p>Git的配置包括三个级别：</p>
-                    <ul>
-                        <li>系统级：针对系统中的所有用户</li>
-                        <li>全局级：针对当前用户的全部仓库</li>
-                        <li>仓库级：针对当前仓库</li>
-                    </ul>
-                    <p>Git的配置包括：</p>
-                    <ul>
-                        <li>用户信息：用户名和邮箱</li>
-                        <li>文本编辑器：Git默认使用系统的默认文本编辑器，也可以通过git config命令修改</li>
-                        <li>差异分析工具：Git默认使用系统的默认差异分析工具，也可以通过git config命令修改</li>
-                    </ul>
                     <p>配置命令：</p>
                     <pre>
 git config --global user.name "your name"
@@ -69,6 +56,8 @@ git config --global core.editor "your editor"
 git config --global merge.tool "your merge tool"
 git config --global diff.tool "your diff tool"
                     </pre>
+                    <p>设置Git的用户名和邮箱,默认编辑器和合并工具(这两个配置是可选的)。<br/>
+                        --global参数是全局配置，也就是对当前用户起作用，而不用在每个仓库单独配置。</p>
                     <h3>创建版本库</h3>
                     <p>创建一个版本库非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
@@ -76,75 +65,84 @@ mkdir myproject
 cd myproject
 git init
                     </pre>
-                    <p>这将创建一个名为myproject的文件夹，进入该文件夹，执行git init命令，这将创建一个名为.git的子文件夹，这个文件夹是版本库。</p>
+                    <p>这将创建一个名为myproject的文件夹，进入该文件夹，执行git init命令，这将创建一个名为.git的子文件夹，这个文件夹是版本库。<br/>
+                    如果已经提前有了文件夹，也可以直接进入该文件夹，执行git init命令。</p>
                     <h3>添加文件</h3>
-                    <p>在版本库中添加文件非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
 git add filename
+git add . // 添加所有文件
                     </pre>
                     <p>这将把文件添加到暂存区。</p>
-                    <h3>提交文件</h3>
-                    <p>提交文件非常简单，只需要在命令行中输入以下命令：</p>
+                    <h3>提交文件到本地仓库</h3>
                     <pre>
 git commit -m "commit message"
                     </pre>
-                    <p>这将把暂存区的文件提交到版本库，并附带提交信息。</p>
+                    <p>这将把暂存区的文件提交到本地仓库，并附带提交信息。</p>
                     <h3>查看状态</h3>
-                    <p>查看当前仓库的状态非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
 git status
                     </pre>
                     <p>这将显示当前仓库的状态，包括暂存区、工作区、版本库。</p>
                     <h3>查看日志</h3>
-                    <p>查看版本库的日志非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
 git log
                     </pre>
-                    <p>这将显示版本库的提交日志。</p>
                     <h3>版本回退</h3>
-                    <p>版本回退非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
 git reset --hard commit_id
                     </pre>
                     <p>这将回退到指定提交的版本。</p>
                     <h3>远程仓库</h3>
                     <p>远程仓库是指托管在远程服务器上的版本库，可以让多个开发者共同开发一个项目。</p>
-                    <p>创建远程仓库非常简单，只需要在命令行中输入以下命令：</p>
                     <pre>
-git remote add origin git@server:/path/to/repo.git
+git remote add origin <远程仓库URL>.git
                     </pre>
-                    <p>这将创建一个名为origin的远程仓库，并指定其URL。</p>
-                    <p>推送本地仓库到远程仓库非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>这将把本地仓库和远程仓库关联起来。</p>
+                    <p>推送本地仓库到远程仓库：</p>
                     <pre>
-git push origin master
+git push origin main
                     </pre>
-                    <p>这将把本地仓库的master分支推送到远程仓库的master分支。</p>
-                    <p>从远程仓库拉取代码非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>这将把本地仓库的main分支推送到远程仓库的main分支。</p>
+                    <p>从远程仓库拉取代码：</p>
                     <pre>
-git pull origin master
+git pull origin main
                     </pre>
-                    <p>这将从远程仓库的master分支拉取代码到本地仓库的master分支。</p>
+                    <p>这将从远程仓库的main分支拉取代码到本地仓库的main分支。</p>
                     <h3>分支管理</h3>
-                    <p>分支是用来开发新功能或修复bug的，在版本库中创建分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>分支是用来开发新功能或修复bug的，在版本库中创建分支：</p>
                     <pre>
 git branch new_branch
                     </pre>
                     <p>这将创建一个名为new_branch的分支。</p>
-                    <p>切换分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>切换分支：</p>
                     <pre>
 git checkout new_branch
                     </pre>
                     <p>这将切换到名为new_branch的分支。</p>
-                    <p>合并分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>合并分支：</p>
                     <pre>
 git merge new_branch
                     </pre>
                     <p>这将把new_branch分支合并到当前分支。</p>
-                    <p>删除分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <p>删除分支：</p>
                     <pre>
 git branch -d new_branch
                     </pre>
                     <p>这将删除名为new_branch的分支。</p>
+                    <h3>删除工作树</h3>
+                    <p>如果不再需要某个工作树，可以执行以下命令：</p>
+                    <pre>git worktree remove D:/code/html</pre>
+                    <p>这将删除名为D:/code/html的工作树。</p>
+                    <h3>Git无法获取CA证书</h3>
+                    <p>1. 更新或安装 SSL 证书<br/>
+                       2. 配置 Git 使用不安全的连接（不推荐）<br/>
+                       如果你处于测试环境或完全信任该网络，你可以临时配置 Git 忽略 SSL 证书验证。这可以通过设置 Git 配置来实现：</p>
+                    <pre>git config --global http.sslVerify false</pre>
+                    <p>注意：这种方法会降低安全性，因为它允许 Git 在没有验证 SSL 证书的情况下进行通信。</p>
+                    <p>3. 指定一个自定义的 CA 证书路径<br/>
+                       如果你信任某个 CA 证书，你可以通过设置 Git 配置来指定一个自定义的 CA 证书路径：</p>
+                    <pre>git config --global http.sslCAInfo /path/to/custom_ca_file.pem</pre>
+                    <p>使用 SSH 而不是 HTTPS</p>
                 </div>
             </div>
             <div id="s2" class="section">
