@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVA_WEB NOTE</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/my_js.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/axios-0.18.0.js"></script>
 </head>
 <body onload="init()">
     <div id="header" class="header">
@@ -21,8 +18,10 @@
     </div> 
     <div class="box">
         <div class="main">
-            <div id="java_web_note" class="title"><a href="#header"># JAVA_WEB_NOTE</a></div>
-            <div id="s1" class="section">
+            <div id="s1" class="section" name="home_section">
+                <div id="java_web_note" class="title" name="home_title">
+                    <div class="title_text"><a href="#header"># JAVA_WEB_NOTE</a></div>
+                </div>
                 <div class="block">
                     <h2>为什么要写JAVA_WEB_NOTE</h2>
                     <p>JAVA_WEB_NOTE是我学习JAVA_WEB的笔记，主要记录JAVA_WEB开发中常用的技术和知识，希望对大家有所帮助。</p>
@@ -33,12 +32,125 @@
                         <li>Vue</li>
                         <li>Axios</li>
                     </ul>
-                    <p>后续还会陆续添加其他内容，欢迎大家的参与。</p>
+                    <p>主页一般会也放一些其他的东西<br/>
+                        后续还会陆续添加其他内容，欢迎大家的参与。</p>
                     <img src="cirno.jpeg" width="100%" alt="java_web_note">
                 </div>
             </div>
-            <div id="html" class="title"><a href="#"># HTML</a></div>
+            <div id="s1_1" class="section" name="home_section">
+                 <div id="git" class="title" name="home_title">
+                    <div class="title_text"><a href="#header"># GIT</a></div>
+                </div>
+                <div class="block">
+                    <h2>Git</h2>
+                    <h6>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+                    Git是用C语言写成，它是目前世界上最先进的分布式版本控制系统。</h6>
+                    <h3>安装Git</h3>
+                    <p>下载地址：https://git-scm.com/downloads</p>
+                    <p>安装完成后，在命令行中输入git命令，如果出现版本信息，则说明安装成功。</p>
+                    <h3>配置Git</h3>
+                    <p>Git的配置包括三个级别：</p>
+                    <ul>
+                        <li>系统级：针对系统中的所有用户</li>
+                        <li>全局级：针对当前用户的全部仓库</li>
+                        <li>仓库级：针对当前仓库</li>
+                    </ul>
+                    <p>Git的配置包括：</p>
+                    <ul>
+                        <li>用户信息：用户名和邮箱</li>
+                        <li>文本编辑器：Git默认使用系统的默认文本编辑器，也可以通过git config命令修改</li>
+                        <li>差异分析工具：Git默认使用系统的默认差异分析工具，也可以通过git config命令修改</li>
+                    </ul>
+                    <p>配置命令：</p>
+                    <pre>
+git config --global user.name "your name"
+git config --global user.email "your email"
+git config --global core.editor "your editor"
+git config --global merge.tool "your merge tool"
+git config --global diff.tool "your diff tool"
+                    </pre>
+                    <h3>创建版本库</h3>
+                    <p>创建一个版本库非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+mkdir myproject
+cd myproject
+git init
+                    </pre>
+                    <p>这将创建一个名为myproject的文件夹，进入该文件夹，执行git init命令，这将创建一个名为.git的子文件夹，这个文件夹是版本库。</p>
+                    <h3>添加文件</h3>
+                    <p>在版本库中添加文件非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git add filename
+                    </pre>
+                    <p>这将把文件添加到暂存区。</p>
+                    <h3>提交文件</h3>
+                    <p>提交文件非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git commit -m "commit message"
+                    </pre>
+                    <p>这将把暂存区的文件提交到版本库，并附带提交信息。</p>
+                    <h3>查看状态</h3>
+                    <p>查看当前仓库的状态非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git status
+                    </pre>
+                    <p>这将显示当前仓库的状态，包括暂存区、工作区、版本库。</p>
+                    <h3>查看日志</h3>
+                    <p>查看版本库的日志非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git log
+                    </pre>
+                    <p>这将显示版本库的提交日志。</p>
+                    <h3>版本回退</h3>
+                    <p>版本回退非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git reset --hard commit_id
+                    </pre>
+                    <p>这将回退到指定提交的版本。</p>
+                    <h3>远程仓库</h3>
+                    <p>远程仓库是指托管在远程服务器上的版本库，可以让多个开发者共同开发一个项目。</p>
+                    <p>创建远程仓库非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git remote add origin git@server:/path/to/repo.git
+                    </pre>
+                    <p>这将创建一个名为origin的远程仓库，并指定其URL。</p>
+                    <p>推送本地仓库到远程仓库非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git push origin master
+                    </pre>
+                    <p>这将把本地仓库的master分支推送到远程仓库的master分支。</p>
+                    <p>从远程仓库拉取代码非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git pull origin master
+                    </pre>
+                    <p>这将从远程仓库的master分支拉取代码到本地仓库的master分支。</p>
+                    <h3>分支管理</h3>
+                    <p>分支是用来开发新功能或修复bug的，在版本库中创建分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git branch new_branch
+                    </pre>
+                    <p>这将创建一个名为new_branch的分支。</p>
+                    <p>切换分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git checkout new_branch
+                    </pre>
+                    <p>这将切换到名为new_branch的分支。</p>
+                    <p>合并分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git merge new_branch
+                    </pre>
+                    <p>这将把new_branch分支合并到当前分支。</p>
+                    <p>删除分支非常简单，只需要在命令行中输入以下命令：</p>
+                    <pre>
+git branch -d new_branch
+                    </pre>
+                    <p>这将删除名为new_branch的分支。</p>
+                </div>
+            </div>
             <div id="s2" class="section">
+                <div id="html" class="title">
+                    <div class="title_text"><a href="#header"># HTML</a></div>
+                </div>                
                 <div class="block">
                     <h2>表格标签</h2>
                     <p>table: 定义表格</p>
@@ -185,8 +297,10 @@
                     <p>nav: 定义导航链接</p>
                 </div>
             </div>
-            <div id="javascript" class="title"><a href="#header"># JavaScript</a></div>
             <div id="s3" class="section">
+                <div id="javascript" class="title">
+                    <div class="title_text"><a href="#header"># JavaScript</a></div>
+                </div>
                 <div class="block">
                     <h2>函数的定义</h2>
                     <pre><code>
@@ -323,7 +437,7 @@ console.log(obj.name); // "John"
 
                 <div class="block">
                     <h2>BOM</h2>
-                    <h6>BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。</h6>
+                    <h6>BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。</h6>
                     <p>window: 全局对象</p>
                     <p>navigator: 浏览器信息</p>
                     <p>location: 页面地址</p>
@@ -452,8 +566,10 @@ console.log(obj.name); // "John"
                     </script>
                 </div>
             </div>
-            <div id="vue" class="title"><a href="#header"># Vue</a></div>
             <div id="s4" class="section">
+                <div id="vue" class="title">
+                    <div class="title_text"><a href="#header"># Vue</a></div>
+                </div>
                 <div class="block">
                     <h2>Vue</h2>
                     <h6>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，Vue 也完全能够为复杂的单页应用提供驱动。Vue 的生态系统包含了构建用户界面的各个方面，例如：路由、状态管理、服务器渲染、渐进式渲染、打包工具、单元测试工具和集成工具等。</h6>
@@ -844,8 +960,10 @@ Vue.component('button-counter', {
                     </script>
                 </div>
             </div>
-            <div id="Axios2" class="title"><a href="#header"># Axios2</a></div>
             <div id="s5" class="section">
+                    <div id="Axios2" class="title">
+                        <div class="title_text"><a href="#header"># Axios2</a></div>
+                    </div>
                 <div class="block">
                     <h2>Axios2</h2>
                     <h6> Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。它是前端向后端发送请求的最佳选择。</h6>
@@ -938,5 +1056,8 @@ axios.post('https://jsonplaceholder.typicode.com/todos', {
     <!--
     <div class="footer">Copyright © 2024 JAVA_WEB_NOTE. All rights reserved.</div>
     -->
+    <script src="js/my_js.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
 </body>
 </html>

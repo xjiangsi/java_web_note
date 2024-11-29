@@ -58,12 +58,12 @@ body {
     margin-bottom: 20px;
 }
 .section {
-    padding: 20px;
     margin-bottom: 20px;
     background-color: #141516;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .title {
+    width: 100%;
     padding: 20px;
     font-size: 24px;
     /*border-bottom: 1px solid #363636;*/
@@ -71,12 +71,16 @@ body {
     top: 0px;
     background-color: #141516;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    justify-content: space-between;
 }
-.title a {
+.title_text {
+    flex: 1;
+}
+.title_text a {
     color: #2196f3;
     text-decoration: none;
 }
-.title a:hover {
+.title_text a:hover {
     text-decoration: underline;
 }
 .block {
