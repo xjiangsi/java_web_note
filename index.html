@@ -4,129 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVA_WEB NOTE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/my_js.js"></script>
     <script src="js/vue.js"></script>
-    <style type="text/css">
-        /* CSS code goes here */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        a {
-            cursor: pointer;
-            color: #2196f3;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-        }
-        .box {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .header {
-            background-color: #141516;
-            color: #fff;
-            width: 100%;
-            /*border-bottom: 1px solid #363636;*/
-        }
-        .header_inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .header_inner h3 {
-            flex: 1;
-        }
-        .header_inner h3 a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .header_inner h3 a:hover {
-            color: #ccc;
-        }
-        .header_links {
-            flex: 2;
-            text-align: right;
-            display: inline-block;
-            margin-right: 20px;
-        }
-        .header_links a {
-            color: #ccc;
-            padding: 0 10px;
-            text-decoration: none;
-        }
-        .header_links a:hover {
-            text-decoration: underline;
-        }
-        .main {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .section {
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #141516;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        .title {
-            padding: 20px;
-            font-size: 24px;
-            /*border-bottom: 1px solid #363636;*/
-            position: sticky;
-            top: 0px;
-            background-color: #141516;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        .title a {
-            color: #2196f3;
-            text-decoration: none;
-        }
-        .block {
-            color: #e1e1e1;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .block h2 {
-            margin-bottom: 10px;
-        }
-        .block h3 {
-            margin-bottom: 10px;
-        }
-        .block p {
-            margin-bottom: 10px;
-        }
-        .block pre {
-            margin-bottom: 20px;
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            overflow: auto;
-            font-family: Consolas, monospace;
-        }
-        .block h6 {
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #666;
-            border-left: 5px solid #666;
-            padding-left: 10px;
-        }
-        .footer {
-            background-color: #242424;
-            color: #989598;
-            padding: 20px;
-        }
-    </style>
+    <script src="js/axios-0.18.0.js"></script>
 </head>
 <body onload="init()">
     <div id="header" class="header">
         <div class="header_inner">
             <span><h3><a onclick="show_java_web_note()">JAVA_WEB_NOTE</a></h3></span>
                 <div class="header_links">
-                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span>
+                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span><span><a onclick="show_axios2()">Axios2</a></span>
                 </div>
             </h3>
         </div>
@@ -145,7 +33,7 @@
                         <li>Vue</li>
                     </ul>
                     <p>后续还会陆续添加其他内容，欢迎大家的参与。</p>
-                    <img src="https://i1.hdslb.com/bfs/article/57facf3ad20d198c4d2349b33b26452a12910572.jpg@1192w.avif" width="100%" alt="java_web_note">
+                    <img src="cirno.jpeg" width="100%" alt="java_web_note">
                 </div>
             </div>
             <div id="html" class="title"><a href="#"># HTML</a></div>
@@ -591,34 +479,128 @@ console.log(obj.name); // "John"
     })
 &lt;/script&gt;
                     </pre>
-                    <h3>v-html</h3>
-                    <p>绑定元素的innerHTML。</p>
-                    <pre>
-&lt;div id="app"&gt;{{ message }}&lt;/div&gt;
-&lt;script&gt;
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: '&lt;h1&gt;Hello, world!&lt;/h1&gt;'
-        }
-    })
-&lt;/script&gt;
-                    </pre>
-                    <h3>v-if</h3>
-                    <p>条件性地渲染元素。</p>
+                    效果：
+                    <div id="app">{{ message }}</div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app',
+                            data: {
+                                message: 'Hello, world!'
+                            }
+                        })
+                    </script>
+                    <h3>v-bind</h3>
+                    <p>绑定元素的属性。</p>
                     <pre>
 &lt;div id="app"&gt;
-    &lt;p v-if="seen"&gt;现在你看到我了&lt;/p&gt;
+    &lt;img v-bind:src="imageUrl"&gt;
 &lt;/div&gt;
 &lt;script&gt;
     var app = new Vue({
         el: '#app',
         data: {
-            seen: true
+            imageUrl: 'https://cn.vuejs.org/images/logo.png'
         }
     })
 &lt;/script&gt;
                     </pre>
+                    效果：
+                    <div id="app2">{{ message }}</div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app2',
+                            data: {
+                                message: 'Hello, world!'
+                            }
+                        })
+                    </script>
+                    <h3>v-model</h3>
+                    <p>实现表单输入和应用状态之间的双向绑定。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;input v-model="message"&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: ''
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    效果：
+                    <div id="app4">
+                        <input v-model="message">
+                        <p>{{ message }}</p>
+                    </div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app4',
+                            data: {
+                                message: ''
+                            }
+                        })
+                    </script>
+                    <h3>v-else-if</h3>
+                    <p>条件性地渲染元素。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;p v-if="type === 'A'"&gt;类型A&lt;/p&gt;
+    &lt;p v-else-if="type === 'B'"&gt;类型B&lt;/p&gt;
+    &lt;p v-else&gt;类型C&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            type: 'B'
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    效果：
+                    <div id="app5">
+                        <p v-if="type === 'A'">类型A</p>
+                        <p v-else-if="type === 'B'">类型B</p>
+                        <p v-else>类型C</p>
+                    </div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app5',
+                            data: {
+                                type: 'B'
+                            }
+                        })
+                    </script>
+                    <h3>v-show</h3>
+                    <p>条件性地展示元素。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;p v-show="show"&gt;Hello, world!&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    效果：
+                    <div id="app6">
+                        <p v-show="show">Hello, world!</p>
+                    </div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app6',
+                            data: {
+                                show: true
+                            }
+                        })
+                    </script>
                     <h3>v-for</h3>
                     <p>遍历数组或对象，绑定元素。</p>
                     <pre>
@@ -638,6 +620,22 @@ console.log(obj.name); // "John"
     })
 &lt;/script&gt;
                     </pre>
+                    效果：
+                    <ul id="app7">
+                        <li v-for="item in items">{{ item.text }}</li>
+                    </ul>
+                    <script>
+                        var app = new Vue({
+                            el: '#app7',
+                            data: {
+                                items: [
+                                    { text: 'Foo' },
+                                    { text: 'Bar' },
+                                    { text: 'Baz' }
+                                ]
+                            }
+                        })
+                    </script>
                     <h3>v-on</h3>
                     <p>绑定事件监听器。</p>
                     <pre>
@@ -655,22 +653,20 @@ console.log(obj.name); // "John"
     })
 &lt;/script&gt;
                     </pre>
-                    <h3>v-model</h3>
-                    <p>实现表单输入和应用状态之间的双向绑定。</p>
-                    <pre>
-&lt;div id="app"&gt;
-    &lt;input v-model="message"&gt;
-    &lt;p&gt;{{ message }}&lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: ''
-        }
-    })
-&lt;/script&gt;
-                    </pre>
+                    效果：
+                    <div id="app">
+                        <button v-on:click="sayHello">点击我</button>
+                    </div>
+                    <script>
+                        var app = new Vue({
+                            el: '#app',
+                            methods: {
+                                sayHello: function() {
+                                    console.log('Hello, world!');
+                                }
+                            }
+                        })
+                    </script>
                 </div>
                 <div class="block">
                     <h2>Vue组件</h2>
@@ -703,6 +699,28 @@ Vue.component('button-counter', {
     })
 &lt;/script&gt;
                     </pre>
+                    效果：
+                    <div id="app8">
+                        <button-counter></button-counter>
+                    </div>
+                    <script>
+                        Vue.component('button-counter', {
+                            template: '<button v-on:click="increment">{{ count }}</button>',
+                            data: function() {
+                                return {
+                                    count: 0
+                                }
+                            },
+                            methods: {
+                                increment: function() {
+                                    this.count++;
+                                }
+                            }
+                        });
+                        var app = new Vue({
+                            el: '#app8'
+                        })
+                    </script>
                     <h3>组件的属性</h3>
                     <p>组件可以接受父组件的数据，并通过props选项来声明。</p>
                     <pre>
@@ -731,6 +749,28 @@ Vue.component('todo-item', {
     })
 &lt;/script&gt;
                     </pre>
+                    效果：
+                    <div id="app9">
+                        <ul>
+                            <todo-item v-for="item in groceryList" :todo="item"></todo-item>
+                        </ul>
+                    </div>
+                    <script>
+                        Vue.component('todo-item', {
+                            props: ['todo'],
+                            template: '<li>{{ todo.text }}</li>'
+                        });
+                        var app = new Vue({
+                            el: '#app9',
+                            data: {
+                                groceryList: [
+                                    { text: 'Vegetables' },
+                                    { text: 'Cheese' },
+                                    { text: 'Bananas' }
+                                ]
+                            }
+                        })
+                    </script>
                     <h3>组件的事件</h3>
                     <p>组件可以触发自定义事件，并通过事件回调来响应。</p>
                     <pre>
@@ -769,56 +809,133 @@ Vue.component('button-counter', {
     })
 &lt;/script&gt;
                     </pre>
+                    效果：
+                    <div id="app10">
+                        <button-counter v-on:increment="incrementCounter"></button-counter>
+                        <p>{{ counter }}</p>
+                    </div>
+                    <script>
+                        Vue.component('button-counter', {
+                            template: '<button v-on:click="increment">{{ count }}</button>',
+                            data: function() {
+                                return {
+                                    count: 0
+                                }
+                            },
+                            methods: {
+                                increment: function() {
+                                    this.count++;
+                                    this.$emit('increment');
+                                }
+                            }
+                        });
+                        var app = new Vue({
+                            el: '#app10',
+                            data: {
+                                counter: 0
+                            },
+                            methods: {
+                                incrementCounter: function() {
+                                    this.counter++;
+                                }
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+            <div id="Axios2" class="title"><a href="#header"># Axios2</a></div>
+            <div id="s5" class="section">
+                <div class="block">
+                    <h2>Axios2</h2>
+                    <h6> Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。它是前端向后端发送请求的最佳选择。</h6>
+                    <h3>安装</h3>
+                    <p>官网：</p>
+                    <a href="https://axios.nodejs.cn/" target="_blank">https://axios.nodejs.cn/</a>
+                    <p>下载 js 文件：(0.18.0版本)</p>
+                    <a href="https://wwpe.lanzoue.com/i7lM32gmplqd" target="_blank">https://wwpe.lanzoue.com/i7lM32gmplqd</a>
+                </div>
+                <div class="block">
+                    <h2>使用</h2>
+                    <h3>GET请求</h3>
+                    <pre>
+// axios({
+//     method: 'get',
+//     url: 'https://jsonplaceholder.typicode.com/todos/1'
+// }).then(function (response) {
+//     console.log(response.data);
+// })
+// 别名，简写
+axios.get('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
+    console.log(response.data);
+})
+                    </pre>
+                    效果：
+                    <input type="button" value="GET请求" onclick="get()">
+                    <script>
+                        // function get() {
+                        //     axios({
+                        //         method: 'get',
+                        //         url: 'https://jsonplaceholder.typicode.com/todos/1'
+                        //     }).then(function (response) {
+                        //         console.log(response.data);
+                        //     })
+                        // }
+                        function get() {
+                            axios.get('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
+                                console.log(response.data);
+                            })
+                        }
+                    </script>
+                    <h3>POST请求</h3>
+                    <pre>
+// axios({
+//     method: 'post',
+//     url: 'https://jsonplaceholder.typicode.com/todos',
+//     data: {
+//         title: 'Buy groceries',
+//         completed: false
+//     }
+// }).then(function (response) {
+//     console.log(response.data);
+// })
+// 别名，简写
+axios.post('https://jsonplaceholder.typicode.com/todos', {
+    title: 'Buy groceries',
+    completed: false
+}).then(function (response) {
+    console.log(response.data);
+})
+                    </pre>
+                    效果：
+                    <input type="button" value="POST请求" onclick="post()">
+                    <script>
+                        // function post() {
+                        //     axios({
+                        //         method: 'post',
+                        //         url: 'https://jsonplaceholder.typicode.com/todos',
+                        //         data: {
+                        //             title: 'Buy groceries',
+                        //             completed: false
+                        //         }
+                        //     }).then(function (response) {
+                        //         console.log(response.data);
+                        //     })
+                        // }
+                        function post() {
+                            axios.post('https://jsonplaceholder.typicode.com/todos', {
+                                title: 'Buy groceries',
+                                completed: false
+                            }).then(function (response) {
+                                console.log(response.data);
+                            })
+                        }
+                    </script>
                 </div>
             </div>
         </div>
     </div>
+    <!--
     <div class="footer">Copyright © 2024 JAVA_WEB_NOTE. All rights reserved.</div>
+    -->
 </body>
-<script>
-    function init() {
-        show_java_web_note();
-    }
-    function show_java_web_note() {
-        hide_all();
-        var java_web_note = document.getElementById("java_web_note");
-        var s1 = document.getElementById("s1");
-        java_web_note.style.display = "block";
-        s1.style.display = "block";
-    }
-    function show_html() {
-        hide_all();
-        var html = document.getElementById("html");
-        var s2 = document.getElementById("s2");
-        html.style.display = "block";
-        s2.style.display = "block";
-    }
-    function show_javascript() {
-        hide_all();
-        var javascript = document.getElementById("javascript");
-        var s3 = document.getElementById("s3");
-        javascript.style.display = "block";
-        s3.style.display = "block";
-    }
-    function show_vue() {
-        hide_all();
-        var vue = document.getElementById("vue");
-        var s4 = document.getElementById("s4");
-        vue.style.display = "block";
-        s4.style.display = "block";
-    }
-    function hide_all() {
-       var titles = document.getElementsByClassName("title");
-       for (var i=0; i<titles.length; i++) {
-           titles[i].style.display = "none";
-       }
-       var sections = document.getElementsByClassName("section");
-       for (var i=0; i<sections.length; i++) {
-           sections[i].style.display = "none";
-       }
-    }
-    function say_hello() {
-        console.log("Hello, world!");
-    }
-</script>
 </html>
