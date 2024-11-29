@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA_WEB NOTE</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        /* CSS code goes here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a {
+            cursor: pointer;
+            color: #2196f3;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+        }
+        .box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #141516;
+            color: #fff;
+            width: 100%;
+            /*border-bottom: 1px solid #363636;*/
+        }
+        .header_inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .header_inner h3 {
+            flex: 1;
+        }
+        .header_inner h3 a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .header_inner h3 a:hover {
+            color: #ccc;
+        }
+        .header_links {
+            flex: 2;
+            text-align: right;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .header_links a {
+            color: #ccc;
+            padding: 0 10px;
+            text-decoration: none;
+        }
+        .header_links a:hover {
+            text-decoration: underline;
+        }
+        .main {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #141516;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .title {
+            padding: 20px;
+            font-size: 24px;
+            /*border-bottom: 1px solid #363636;*/
+            position: sticky;
+            top: 0px;
+            background-color: #141516;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .title a {
+            color: #2196f3;
+            text-decoration: none;
+        }
+        .block {
+            color: #e1e1e1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .block h2 {
+            margin-bottom: 10px;
+        }
+        .block h3 {
+            margin-bottom: 10px;
+        }
+        .block p {
+            margin-bottom: 10px;
+        }
+        .block pre {
+            margin-bottom: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+            font-family: Consolas, monospace;
+        }
+        .block h6 {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            border-left: 5px solid #666;
+            padding-left: 10px;
+        }
+        .footer {
+            background-color: #242424;
+            color: #989598;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div id="header" class="header">
+        <div class="header_inner">
+            <span><h3><a onclick="show_java_web_note()">JAVA_WEB_NOTE</a></h3></span>
+                <div class="header_links">
+                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span>
+                </div>
+            </h3>
+        </div>
+    </div> 
+    <div class="box">
+        <div class="main">
+            <div id="java_web_note" class="title"><a href="#header"># JAVA_WEB_NOTE</a></div>
+            <div id="s1" class="section">
+                <div class="block">
+                    <h2>为什么要写JAVA_WEB_NOTE</h2>
+                    <p>JAVA_WEB_NOTE是我学习JAVA_WEB的笔记，主要记录JAVA_WEB开发中常用的技术和知识，希望对大家有所帮助。</p>
+                    <p>JAVA_WEB_NOTE的主要内容包括：</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                        <li>Vue</li>
+                    </ul>
+                    <p>后续还会陆续添加其他内容，欢迎大家的参与。</p>
+                    <img src="https://i1.hdslb.com/bfs/article/57facf3ad20d198c4d2349b33b26452a12910572.jpg@1192w.avif" width="100%" alt="java_web_note">
+                </div>
+            </div>
+            <div id="html" class="title"><a href="#"># HTML</a></div>
+            <div id="s2" class="section">
+                <div class="block">
+                    <h2>表格标签</h2>
+                    <p>table: 定义表格</p>
+                    <p>tr: 定义表格行</p>
+                    <p>th: 定义表头单元格</p>
+                    <p>td: 定义数据单元格</p>
+                    <h3>示例</h3>
+                    <pre>
+&lt;table border="1" cellspacing="0" cellpadding="0"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;姓名&lt;/th&gt;
+        &lt;th&gt;年龄&lt;/th&gt;
+        &lt;th&gt;城市&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;张三&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;北京&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <table border="1" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>城市</th>
+                        </tr>
+                        <tr>
+                            <td>张三</td>
+                            <td>25</td>
+                            <td>北京</td>
+                        </tr>
+                    </table>
+                    <p>cellspacing和cellpadding属性用于设置单元格边框和内容之间的距离。</p>
+                </div>
+                <div class="block">
+                    <h2>表单标签</h2>
+                    <p>form: 定义表单</p>
+                    <p>input: 定义输入控件</p>
+                    <p>select: 定义下拉列表</p>
+                    <p>option: 定义下拉列表选项</p>
+                    <p>textarea: 定义多行文本输入控件</p>
+                    <p>button: 定义按钮</p>
+                    <p>label: 定义标签</p>
+                    <p>fieldset: 定义字段集</p>
+                    <p>legend: 定义字段集标题</p>
+                    <p>output: 定义输出控件</p>
+                    <p>progress: 定义进度条</p>
+                    <p>meter: 定义度量尺</p>
+                    <h3>示例</h3>
+                    <pre>
+&lt;form action="submit.php" method="post"&gt;
+    &lt;label for="name"&gt;姓名:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+    &lt;br&gt;
+    &lt;label for="age"&gt;年龄:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age"&gt;
+    &lt;br&gt;
+    &lt;label for="city"&gt;城市:&lt;/label&gt;
+    &lt;select id="city" name="city"&gt;
+        &lt;option value="beijing"&gt;北京&lt;/option&gt;
+        &lt;option value="shanghai"&gt;上海&lt;/option&gt;
+        &lt;option value="guangzhou"&gt;广州&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br&gt;
+    &lt;label for="message"&gt;留言:&lt;/label&gt;
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+    &lt;br&gt;
+    &lt;button type="submit"&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <form action="submit.php" method="post">
+                        <label for="name">姓名:</label>
+                        <input type="text" id="name" name="name">
+                        <br>
+                        <label for="age">年龄:</label>
+                        <input type="number" id="age" name="age">
+                        <br>
+                        <label for="city">城市:</label>
+                        <select id="city" name="city">
+                            <option value="beijing">北京</option>
+                            <option value="shanghai">上海</option>
+                            <option value="guangzhou">广州</option>
+                        </select>
+                        <br>
+                        <label for="message">留言:</label>
+                        <textarea id="message" name="message"></textarea>
+                        <br>
+                        <button type="submit">提交</button>
+                    </form>
+                </div>
+                <div class="block">
+                    <h2>列表标签</h2>
+                    <p>ul: 定义无序列表</p>
+                    <p>ol: 定义有序列表</p>
+                    <p>li: 定义列表项</p>
+                    <p>dl: 定义描述列表</p>
+                    <p>dt: 定义描述列表项目</p>
+                    <p>dd: 定义描述列表描述</p>
+                    <h3>示例</h3>
+                    <pre>
+&lt;ul&gt;
+    &lt;li&gt;苹果&lt;/li&gt;
+    &lt;li&gt;香蕉&lt;/li&gt;
+    &lt;li&gt;橘子&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;第一项&lt;/li&gt;
+    &lt;li&gt;第二项&lt;/li&gt;
+    &lt;li&gt;第三项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;超文本标记语言&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;层叠样式表&lt;/dd&gt;
+&lt;/dl&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <ul>
+                        <li>苹果</li>
+                        <li>香蕉</li>
+                        <li>橘子</li>
+                    </ul>
+                    <ol>
+                        <li>第一项</li>
+                        <li>第二项</li>
+                        <li>第三项</li>
+                    </ol>
+                    <dl>
+                        <dt>HTML</dt>
+                        <dd>超文本标记语言</dd>
+                        <dt>CSS</dt>
+                        <dd>层叠样式表</dd>
+                    </dl>
+                </div>
+                <div class="block">
+                    <h2>其他标签</h2>
+                    <p>div: 定义文档中的分区或区域</p>
+                    <p>span: 定义文档中的行内文本</p>
+                    <p>header: 定义文档的页眉</p>
+                    <p>nav: 定义导航链接</p>
+                </div>
+            </div>
+            <div id="javascript" class="title"><a href="#header"># JavaScript</a></div>
+            <div id="s3" class="section">
+                <div class="block">
+                    <h2>函数的定义</h2>
+                    <pre><code>
+function add(a, b) {
+    return a + b;
+}
+                    </code></pre>
+                    <pre><code>
+var add = function(a, b) {
+    return a + b;
+}
+                    </code></pre>
+                </div>
+
+                <div class="block">
+                    <h2>数组</h2>
+                    <h3>数组的创建</h3>
+                    <pre><code>
+var arr = new Array();
+var arr = new Array(10);
+var arr = [1, 2, 3];
+var arr = ["apple", "banana", "orange"];
+                    </code></pre>
+                    <h3>数组方法</h3>
+                    <p>push: 向数组末尾添加元素</p>
+                    <p>pop: 删除数组末尾的元素</p>
+                    <p>shift: 删除数组开头的元素</p>
+                    <p>unshift: 向数组开头添加元素</p>
+                    <p>splice: 在数组中添加或删除元素</p>
+                    <p>sort: 对数组元素进行排序</p>
+                    <p>reverse: 反转数组元素的顺序</p>
+                    <p>join: 将数组元素转换为字符串</p>
+                    <pre><code>
+var arr = [1, 3, 2];
+arr.push(4); // [1, 3, 2, 4]
+arr.pop(); // 4
+arr.shift(); // 1
+arr.unshift(0); // [0, 3, 2]
+arr.splice(1, 1, "apple"); // [0, "apple", 2]
+arr.sort(); // [0, 2, "apple"]
+arr.reverse(); // ["apple", 2, 0]
+arr.join("-"); // "apple-2-0"
+                    </code></pre>
+                    <h3>遍历数组</h3>
+                    <p>for...in: 遍历数组的键值</p>
+                    <p>forEach: 遍历数组的元素</p>
+                    <pre><code>
+var arr = [1, 2, 3];
+// for...in
+for (var i in arr) { console.log(arr[i]); }
+// forEach
+arr.forEach(function(e) { console.log(e); });
+// 箭头函数
+arr.forEach((e) => { console.log(e); });
+                    </code></pre>
+                </div>
+
+                <div class="block">
+                    <h2>字符串</h2>
+                    <h3>字符串的创建</h3>
+                    <pre><code>
+var str = "Hello, world!";
+var str = new String("Hello, world!");
+var str = String("Hello, world!");
+                    </code></pre>
+                    <h3>字符串方法</h3>
+                    <p>charAt: 获取指定位置的字符</p>
+                    <p>charCodeAt: 获取指定位置的字符的ASCII码</p>
+                    <p>concat: 连接两个或多个字符串</p>
+                    <p>indexOf: 查找指定字符串的位置</p>
+                    <p>lastIndexOf: 从后向前查找指定字符串的位置</p>
+                    <p>localeCompare: 比较两个字符串</p>
+                    <p>match: 匹配字符串</p>
+                    <p>replace: 替换字符串</p>
+                    <p>search: 查找字符串</p>
+                    <p>slice: 截取字符串</p>
+                    <p>split: 分割字符串</p>
+                    <p>substring: 截取字符串</p>
+                    <p>toLowerCase: 转换为小写</p>
+                    <p>toUpperCase: 转换为大写</p>
+                    <p>trim: 去除字符串两端的空白字符</p>
+                    <pre><code>
+var str = "Hello, world!";
+console.log(str.charAt(0)); // "H"
+console.log(str.charCodeAt(0)); // 72
+console.log(str.concat(" How are you?")); // "Hello, world! How are you?"
+console.log(str.indexOf("l")); // 2
+console.log(str.lastIndexOf("l")); // 9
+console.log(str.localeCompare("hello")); // 1
+console.log(str.match(/l/g)); // ["l", "l"]
+console.log(str.replace("l", "L")); // "HeLLo, world!"
+console.log(str.search("l")); // 2
+console.log(str.slice(2, 5)); // "llo"
+console.log(str.split(" ")); // ["Hello,", "world!"]
+console.log(str.substring(2, 5)); // "llo"
+console.log(str.toLowerCase()); // "hello, world!"
+console.log(str.toUpperCase()); // "HELLO, WORLD!"
+console.log(str.trim()); // "Hello, world!"
+                    </code></pre>
+                </div>
+
+                <div class="block">
+                    <h2>JSON</h2>
+                    <h6>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，它基于ECMAScript的一个子集。它是一种基于文本的、可读性高的、占用空间小的的数据交换格式。</h6>
+                    <h3>JSON的创建</h3>
+                    <pre><code>
+var obj = {name: "John", age: 30, city: "New York"};
+var json = JSON.stringify(obj);
+console.log(json); // {"name":"John","age":30,"city":"New York"}
+                    </code></pre>
+                    <h3>JSON的解析</h3>
+                    <pre><code>
+var json = '{"name":"John","age":30,"city":"New York"}';
+var obj = JSON.parse(json);
+console.log(obj.name); // "John"
+                    </code></pre>
+                    <p>JSON.stringify()方法用于将JavaScript对象转换为JSON字符串。</p>
+                    <p>JSON.parse()方法用于将JSON字符串转换为JavaScript对象。</p>
+                    <pre><code>
+                        var obj = {name: "John", age: 30, city: "New York"};
+                        var json = JSON.stringify(obj);
+                        console.log(json); // {"name":"John","age":30,"city":"New York"}
+                        var obj2 = JSON.parse(json);
+                        console.log(obj2.name); // "John"
+                    </code></pre>
+                    <h3>value的数据类型</h3>
+                    <p>数字：整数或浮点数</p>
+                    <p>字符串：用双引号或单引号括起来的任意文本</p>
+                    <p>布尔值：true或false</p>
+                    <p>数组：用方括号括起来的元素列表，元素之间用逗号分隔</p>
+                    <p>对象：用花括号括起来的键-值对列表，键和值之间用冒号分隔</p>
+                    <p>null：表示一个空值</p>
+                </div>
+
+                <div class="block">
+                    <h2>BOM</h2>
+                    <h6>BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。BOM(Browser Object Model)是W3C组织制定的一套Web浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的接口。BOM定义了与浏览器窗口进行交互的对象，如window、navigator、location、history、screen、document等。</h6>
+                    <p>window: 全局对象</p>
+                    <p>navigator: 浏览器信息</p>
+                    <p>location: 页面地址</p>
+                    <p>history: 历史记录</p>
+                    <p>screen: 屏幕信息</p>
+                    <p>document: 文档对象</p>
+                    <h3>示例</h3>
+                    <pre>
+&lt;script&gt;
+    console.log(window.innerWidth); // 窗口宽度
+    console.log(location.href); // 页面地址
+    console.log(history.length); // 历史记录数
+    console.log(screen.width); // 屏幕宽度
+    console.log(document.title); // 文档标题
+&lt;/script&gt;
+                    </pre>
+                    <p>效果：(在控制台看)</p>
+                    <script>
+                        console.log(window.innerWidth); // 窗口宽度
+                        console.log(location.href); // 页面地址
+                        console.log(history.length); // 历史记录数
+                        console.log(screen.width); // 屏幕宽度
+                        console.log(document.title); // 文档标题
+                    </script>
+                </div>
+
+                <div class="block">
+                    <h2>DOM</h2>
+                    <h6>DOM是Document Object Model的缩写，它是W3C组织推荐的处理可扩展置标语言的标准编程接口。DOM定义了处理网页内容的模型，并提供了对文档的各种功能的访问。</h6>
+                    <p>document: 整个HTML文档</p>
+                    <p>createElement: 创建元素</p>
+                    <p>createTextNode: 创建文本节点</p>
+                    <p>getElementById: 获取指定元素</p>
+                    <p>getElementsByTagName: 获取指定标签的所有元素</p>
+                    <p>getElementsByName: 获取指定名称的所有元素</p>
+                    <p>getElementsByClassName: 获取指定类名的所有元素</p>
+                    <p>appendChild: 向元素添加子元素</p>
+                    <p>removeChild: 从元素移除子元素</p>
+                    <p>innerHTML: 获取或设置元素的innerHTML</p>
+                    <p>style: 获取或设置元素的样式</p>
+                    <h3>获取元素对象</h3>
+                    <pre>
+&lt;div id="box"&gt;&lt;/div&gt;
+&lt;script&gt;
+    var box = document.getElementById("box");
+    box.innerHTML = "Hello, world!";
+    box.style.backgroundColor = "red";
+&lt;/script&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <div id="box"></div>
+                    <script>
+                        var box = document.getElementById("box");
+                        box.innerHTML = "Hello, world!";
+                        box.style.backgroundColor = "red";
+                    </script>
+                </div>
+
+                <div class="block">
+                    <h2>事件</h2>
+                    <h3>事件类型</h3>
+                    <p>click: 鼠标点击事件</p>
+                    <p>dblclick: 鼠标双击事件</p>
+                    <p>mousedown: 鼠标按下事件</p>
+                    <p>mouseup: 鼠标松开事件</p>
+                    <p>mousemove: 鼠标移动事件</p>
+                    <p>mouseover: 鼠标移入事件</p>
+                    <p>mouseout: 鼠标移出事件</p>
+                    <p>keydown: 键盘按下事件</p>
+                    <p>keyup: 键盘松开事件</p>
+                    <p>keypress: 键盘输入事件</p>
+                    <h3>事件绑定</h3>
+                    <pre>
+&lt;input type="button" id="btn" value="按钮"&gt;
+&lt;script&gt;
+    var btn = document.getElementById("btn");
+    btn.onclick = function() {
+        console.log("按钮被点击了！");
+    };
+&lt;/script&gt;
+&lt;input type="button" onclick="click_me()" value="按钮"&gt;
+&lt;script&gt;
+    function click_me() {
+        console.log("按钮被点击了！");
+    }
+&lt;/script&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <input type="button" id="btn" value="按钮">
+                    <script>
+                        var btn = document.getElementById("btn");
+                        btn.onclick = function() {
+                            console.log("按钮被点击了！");
+                        };
+                    </script>
+                    <input type="button" onclick="click_me()" value="按钮">
+                    <script>
+                        function click_me() {
+                            console.log("按钮被点击了！");
+                        }
+                    </script>
+                </div>
+
+                <div class="block">
+                    <h2>定时器</h2>
+                    <p>setTimeout: 延迟执行函数</p>
+                    <p>setInterval: 循环执行函数</p>
+                    <pre>
+&lt;script&gt;
+    setTimeout(function() {
+        console.log("3秒后执行");
+    }, 3000);
+    setInterval(function() {
+        console.log("每隔1秒执行");
+    }, 1000);
+&lt;/script&gt;
+                    </pre>
+                    <p>效果：</p>
+                    <script>
+                        setTimeout(function() {
+                            console.log("3秒后执行");
+                        }, 3000);
+                        setInterval(function() {
+                            console.log("每隔1秒执行");
+                        }, 1000);
+                    </script>
+                </div>
+            </div>
+            <div id="vue" class="title"><a href="#header"># Vue</a></div>
+            <div id="s4" class="section">
+                <div class="block">
+                    <h2>Vue</h2>
+                    <h6>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，Vue 也完全能够为复杂的单页应用提供驱动。Vue 的生态系统包含了构建用户界面的各个方面，例如：路由、状态管理、服务器渲染、渐进式渲染、打包工具、单元测试工具和集成工具等。</h6>
+                    <h3>安装</h3>
+                    <ul>
+                        <li>Vue 2.5.22版本的下载(Vue 2已不在维护)</li>
+                        <a href="https://wwpe.lanzoue.com/ixND22gmksji" target="_blank">https://wwpe.lanzoue.com/ixND22gmksji</a>
+                        <li>Vue 3的下载</li>
+                        <a href="https://cn.vuejs.org/" target="_blank">https://cn.vuejs.org/</a>
+                    </ul>
+                </div>
+                <div class="block">
+                    <h2>Vue指令</h2>
+                    <h3>v-text</h3>
+                    <p>绑定元素的textContent。</p>
+                    <pre>
+&lt;div id="app"&gt;{{ message }}&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello, world!'
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>v-html</h3>
+                    <p>绑定元素的innerHTML。</p>
+                    <pre>
+&lt;div id="app"&gt;{{ message }}&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '&lt;h1&gt;Hello, world!&lt;/h1&gt;'
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>v-if</h3>
+                    <p>条件性地渲染元素。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;p v-if="seen"&gt;现在你看到我了&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            seen: true
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>v-for</h3>
+                    <p>遍历数组或对象，绑定元素。</p>
+                    <pre>
+&lt;ul id="app"&gt;
+    &lt;li v-for="item in items"&gt;{{ item.text }}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: [
+                { text: 'Foo' },
+                { text: 'Bar' },
+                { text: 'Baz' }
+            ]
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>v-on</h3>
+                    <p>绑定事件监听器。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;button v-on:click="sayHello"&gt;点击我&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        methods: {
+            sayHello: function() {
+                console.log('Hello, world!');
+            }
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>v-model</h3>
+                    <p>实现表单输入和应用状态之间的双向绑定。</p>
+                    <pre>
+&lt;div id="app"&gt;
+    &lt;input v-model="message"&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: ''
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                </div>
+                <div class="block">
+                    <h2>Vue组件</h2>
+                    <p>Vue组件是Vue中重要的概念，它允许我们定义可重用的HTML、CSS和JavaScript代码片段，并在不同的地方重复使用。</p>
+                    <h3>创建组件</h3>
+                    <p>Vue组件是一个带有预定义选项的Vue实例，它包含了数据、模板、方法、生命周期钩子等。</p>
+                    <pre>
+// 定义一个名为 button-counter 的组件
+Vue.component('button-counter', {
+    template: '&lt;button v-on:click="increment"&gt;{{ count }}&lt;/button&gt;',
+    data: function() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        increment: function() {
+            this.count++;
+        }
+    }
+});
+
+// 使用组件
+&lt;div id="app"&gt;
+    &lt;button-counter&gt;&lt;/button-counter&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app'
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>组件的属性</h3>
+                    <p>组件可以接受父组件的数据，并通过props选项来声明。</p>
+                    <pre>
+// 定义一个名为 todo-item 的组件
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '&lt;li&gt;{{ todo.text }}&lt;/li&gt;'
+});
+
+// 使用组件
+&lt;div id="app"&gt;
+    &lt;ul&gt;
+        &lt;todo-item v-for="item in groceryList" :todo="item"&gt;&lt;/todo-item&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            groceryList: [
+                { text: 'Vegetables' },
+                { text: 'Cheese' },
+                { text: 'Bananas' }
+            ]
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                    <h3>组件的事件</h3>
+                    <p>组件可以触发自定义事件，并通过事件回调来响应。</p>
+                    <pre>
+// 定义一个名为 button-counter 的组件
+Vue.component('button-counter', {
+    template: '&lt;button v-on:click="increment"&gt;{{ count }}&lt;/button&gt;',
+    data: function() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        increment: function() {
+            this.count++;
+            this.$emit('increment');
+        }
+    }
+});
+
+// 使用组件
+&lt;div id="app"&gt;
+    &lt;button-counter v-on:increment="incrementCounter"&gt;&lt;/button-counter&gt;
+    &lt;p&gt;{{ counter }}&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            incrementCounter: function() {
+                this.counter++;
+            }
+        }
+    })
+&lt;/script&gt;
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Copyright © 2024 JAVA_WEB_NOTE. All rights reserved.</div>
+</body>
+<script>
+    function init() {
+        show_java_web_note();
+    }
+    function show_java_web_note() {
+        hide_all();
+        var java_web_note = document.getElementById("java_web_note");
+        var s1 = document.getElementById("s1");
+        java_web_note.style.display = "block";
+        s1.style.display = "block";
+    }
+    function show_html() {
+        hide_all();
+        var html = document.getElementById("html");
+        var s2 = document.getElementById("s2");
+        html.style.display = "block";
+        s2.style.display = "block";
+    }
+    function show_javascript() {
+        hide_all();
+        var javascript = document.getElementById("javascript");
+        var s3 = document.getElementById("s3");
+        javascript.style.display = "block";
+        s3.style.display = "block";
+    }
+    function show_vue() {
+        hide_all();
+        var vue = document.getElementById("vue");
+        var s4 = document.getElementById("s4");
+        vue.style.display = "block";
+        s4.style.display = "block";
+    }
+    function hide_all() {
+       var titles = document.getElementsByClassName("title");
+       for (var i=0; i<titles.length; i++) {
+           titles[i].style.display = "none";
+       }
+       var sections = document.getElementsByClassName("section");
+       for (var i=0; i<sections.length; i++) {
+           sections[i].style.display = "none";
+       }
+    }
+    function say_hello() {
+        console.log("Hello, world!");
+    }
+</script>
+</html>
