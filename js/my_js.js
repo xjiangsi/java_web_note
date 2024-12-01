@@ -3,13 +3,13 @@ function init() {
 }
 function show_java_web_note() {
     hide_all();
-    var home_sections = document.getElementsByName("home_section");
-    for (var i = 0; i < home_sections.length; i++) {
-        home_sections[i].style.display = "block";
+    var sections = document.getElementsByName("home_section");
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "block";
     }
-    var home_titles = document.getElementsByName("home_title");
-    for (var i = 0; i < home_titles.length; i++) {
-        home_titles[i].style.display = "flex";
+    var titles = document.getElementsByName("home_title");
+    for (var i = 0; i < titles.length; i++) {
+        titles[i].style.display = "flex";
     }
 }
 function show_html() {
@@ -28,10 +28,14 @@ function show_javascript() {
 }
 function show_vue() {
     hide_all();
-    var vue = document.getElementById("vue");
-    var s4 = document.getElementById("s4");
-    vue.style.display = "flex";
-    s4.style.display = "block";
+    var sections = document.getElementsByName("vue_section");
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "block";
+    }
+    var titles = document.getElementsByName("vue_title");
+    for (var i = 0; i < titles.length; i++) {
+        titles[i].style.display = "flex";
+    }
 }
 function show_axios2() {
     hide_all();

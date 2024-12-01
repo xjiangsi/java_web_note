@@ -68,7 +68,7 @@ body {
     font-size: 24px;
     /*border-bottom: 1px solid #363636;*/
     position: sticky;
-    top: 0px;
+    top: 0;
     background-color: #141516;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     justify-content: space-between;
@@ -79,8 +79,22 @@ body {
 .title_text a {
     color: #2196f3;
     text-decoration: none;
+    padding: 0 10px;
 }
 .title_text a:hover {
+    text-decoration: underline;
+}
+.title_to_header {
+    flex: 1;
+    text-align: right;
+    display: inline-block;
+}
+.title_to_header a {
+    color: #ccc;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.title_to_header a:hover {
     text-decoration: underline;
 }
 .block {
@@ -135,4 +149,31 @@ body {
         margin-top: 10px;
         text-align: left;
     }
+    .title {
+        padding: 10px;
+    }
+    .title_text {
+        font-size: 12px;
+    }
+   .title_to_header {
+        font-size: 12px;
+    }
+   .block {
+        padding: 10px;
+    }
+   .block h2 {
+        font-size: 18px;
+    }
+   .block h3 {
+        font-size: 16px;
+    }
+   .block p {
+        font-size: 12px;
+    }
+   .block pre {
+        font-size: 12px;
+    }
+   .block h6 {
+        font-size: 10px;
+   }
 }

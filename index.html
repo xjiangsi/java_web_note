@@ -20,10 +20,15 @@
     </div> 
     <div class="box">
         <div class="main">
-            <div id="s1" class="section" name="home_section">
-                <div id="java_web_note" class="title" name="home_title">
-                    <div class="title_text"><a href="#header"># JAVA_WEB_NOTE</a></div>
+            <div id="java_web_note" class="title" name="home_title">
+                <div class="title_text">
+                    <a href="#s1"># JAVA_WEB_NOTE</a><a href="#s1_1"># GIT</a>
                 </div>
+                <div class="title_to_header">
+                    <a href="#header">TOP</a>
+                </div>
+            </div>
+            <div id="s1" class="section" name="home_section">
                 <div class="block">
                     <h2>为什么要写JAVA_WEB_NOTE</h2>
                     <p>JAVA_WEB_NOTE是我学习JAVA_WEB的笔记，主要记录JAVA_WEB开发中常用的技术和知识，希望对大家有所帮助。</p>
@@ -40,9 +45,6 @@
                 </div>
             </div>
             <div id="s1_1" class="section" name="home_section">
-                 <div id="git" class="title" name="home_title">
-                    <div class="title_text"><a href="#header"># GIT</a></div>
-                </div>
                 <div class="block">
                     <h2>Git</h2>
                     <h6>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
@@ -566,10 +568,15 @@ console.log(obj.name); // "John"
                     </script>
                 </div>
             </div>
-            <div id="s4" class="section">
-                <div id="vue" class="title">
-                    <div class="title_text"><a href="#header"># Vue</a></div>
+            <div id="vue" class="title" name="vue_title">
+                <div class="title_text">
+                    <a href="#s4"># Vue</a><a href="#s4_1"># Vue项目</a><a href="#s4_2"># Element</a>
                 </div>
+                <div class="title_to_header">
+                    <a href="#header">TOP</a>
+                </div>
+            </div>
+            <div id="s4" class="section" name="vue_section">
                 <div class="block">
                     <h2>Vue</h2>
                     <h6>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，Vue 也完全能够为复杂的单页应用提供驱动。Vue 的生态系统包含了构建用户界面的各个方面，例如：路由、状态管理、服务器渲染、渐进式渲染、打包工具、单元测试工具和集成工具等。</h6>
@@ -785,179 +792,65 @@ console.log(obj.name); // "John"
                         })
                     </script>
                 </div>
+            </div>
+            <div id="s4_1" class="section" name="vue_section">
                 <div class="block">
-                    <h2>Vue组件</h2>
-                    <p>Vue组件是Vue中重要的概念，它允许我们定义可重用的HTML、CSS和JavaScript代码片段，并在不同的地方重复使用。</p>
-                    <h3>创建组件</h3>
-                    <p>Vue组件是一个带有预定义选项的Vue实例，它包含了数据、模板、方法、生命周期钩子等。</p>
+                    <h2>Vue项目</h2>
+                    <h3>创建项目</h3>
+                    <p>使用Vue-cli创建项目：</p>
                     <pre>
-// 定义一个名为 button-counter 的组件
-Vue.component('button-counter', {
-    template: '&lt;button v-on:click="increment"&gt;{{ count }}&lt;/button&gt;',
-    data: function() {
-        return {
-            count: 0
-        }
-    },
-    methods: {
-        increment: function() {
-            this.count++;
-        }
-    }
-});
-
-// 使用组件
-&lt;div id="app"&gt;
-    &lt;button-counter&gt;&lt;/button-counter&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    var app = new Vue({
-        el: '#app'
-    })
-&lt;/script&gt;
+npm install -g @vue/cli
+vue create my-project
                     </pre>
-                    效果：
-                    <div id="app8">
-                        <button-counter></button-counter>
-                    </div>
-                    <script>
-                        Vue.component('button-counter', {
-                            template: '<button v-on:click="increment">{{ count }}</button>',
-                            data: function() {
-                                return {
-                                    count: 0
-                                }
-                            },
-                            methods: {
-                                increment: function() {
-                                    this.count++;
-                                }
-                            }
-                        });
-                        var app = new Vue({
-                            el: '#app8'
-                        })
-                    </script>
-                    <h3>组件的属性</h3>
-                    <p>组件可以接受父组件的数据，并通过props选项来声明。</p>
+                    <h3>目录结构</h3>
+                    <ul>
+                        <li>public：静态资源目录</li>
+                        <li>src：源码目录</li>
+                        <li>src/assets：静态资源目录</li>
+                        <li>src/components：组件目录</li>
+                        <li>src/views：视图目录</li>
+                        <li>src/App.vue：入口组件</li>
+                        <li>src/main.js：入口文件</li>
+                    </ul>
+                    <p>详细的目录结构请参考官方文档：<a href="https://cli.vuejs.org/zh/guide/directory-structure.html" target="_blank">https://cli.vuejs.org/zh/guide/directory-structure.html</a></p>
+                    <p>详细的教程请参考官方文档<a href="https://cn.vuejs.org/" target="_blank">https://cn.vuejs.org/</a></p>
+                </div>
+            </div>
+            <div id="s4_2" class="section" name="vue_section">
+                <div class="block">
+                    <h2>Element</h2>
+                    <h6>Element 是一套基于 Vue.js 2.0 的桌面端组件库，提供了完善的基础组件以及丰富的业务组件，助力开发者快速搭建高质量的、高可靠的桌面端应用。</h6>
+                    <h3>安装</h3>
+                    <p>npm 安装：</p>
                     <pre>
-// 定义一个名为 todo-item 的组件
-Vue.component('todo-item', {
-    props: ['todo'],
-    template: '&lt;li&gt;{{ todo.text }}&lt;/li&gt;'
-});
-
-// 使用组件
-&lt;div id="app"&gt;
-    &lt;ul&gt;
-        &lt;todo-item v-for="item in groceryList" :todo="item"&gt;&lt;/todo-item&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    var app = new Vue({
-        el: '#app',
-        data: {
-            groceryList: [
-                { text: 'Vegetables' },
-                { text: 'Cheese' },
-                { text: 'Bananas' }
-            ]
-        }
-    })
-&lt;/script&gt;
+npm install element-ui -S
                     </pre>
-                    效果：
-                    <div id="app9">
-                        <ul>
-                            <todo-item v-for="item in groceryList" :todo="item"></todo-item>
-                        </ul>
-                    </div>
-                    <script>
-                        Vue.component('todo-item', {
-                            props: ['todo'],
-                            template: '<li>{{ todo.text }}</li>'
-                        });
-                        var app = new Vue({
-                            el: '#app9',
-                            data: {
-                                groceryList: [
-                                    { text: 'Vegetables' },
-                                    { text: 'Cheese' },
-                                    { text: 'Bananas' }
-                                ]
-                            }
-                        })
-                    </script>
-                    <h3>组件的事件</h3>
-                    <p>组件可以触发自定义事件，并通过事件回调来响应。</p>
+                    <p>yarn 安装：</p>
                     <pre>
-// 定义一个名为 button-counter 的组件
-Vue.component('button-counter', {
-    template: '&lt;button v-on:click="increment"&gt;{{ count }}&lt;/button&gt;',
-    data: function() {
-        return {
-            count: 0
-        }
-    },
-    methods: {
-        increment: function() {
-            this.count++;
-            this.$emit('increment');
-        }
-    }
-});
-
-// 使用组件
-&lt;div id="app"&gt;
-    &lt;button-counter v-on:increment="incrementCounter"&gt;&lt;/button-counter&gt;
-    &lt;p&gt;{{ counter }}&lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    var app = new Vue({
-        el: '#app',
-        data: {
-            counter: 0
-        },
-        methods: {
-            incrementCounter: function() {
-                this.counter++;
-            }
-        }
-    })
-&lt;/script&gt;
+yarn add element-ui
                     </pre>
-                    效果：
-                    <div id="app10">
-                        <button-counter v-on:increment="incrementCounter"></button-counter>
-                        <p>{{ counter }}</p>
-                    </div>
-                    <script>
-                        Vue.component('button-counter', {
-                            template: '<button v-on:click="increment">{{ count }}</button>',
-                            data: function() {
-                                return {
-                                    count: 0
-                                }
-                            },
-                            methods: {
-                                increment: function() {
-                                    this.count++;
-                                    this.$emit('increment');
-                                }
-                            }
-                        });
-                        var app = new Vue({
-                            el: '#app10',
-                            data: {
-                                counter: 0
-                            },
-                            methods: {
-                                incrementCounter: function() {
-                                    this.counter++;
-                                }
-                            }
-                        })
-                    </script>
+                    <h3>使用</h3>
+                    <p>全局引入：</p>
+                    <pre>
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
+                    </pre>
+                    <p>按需引入：</p>
+                    <pre>
+import { Button, Input } from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+export default {
+  name: 'ComponentName',
+  components: {
+    'el-button': Button,
+    'el-input': Input
+  }
+}
+                    </pre>
+                    <p>具体使用方法请参考官方文档：<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank">https://element.eleme.cn/#/zh-CN/component/installation</a></p>
                 </div>
             </div>
             <div id="s5" class="section">
