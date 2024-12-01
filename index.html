@@ -13,7 +13,7 @@
         <div class="header_inner">
             <span><h3><a onclick="show_java_web_note()">JAVA_WEB_NOTE</a></h3></span>
                 <div class="header_links">
-                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span><span><a onclick="show_axios2()">Axios2</a></span>
+                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span>
                 </div>
             </h3>
         </div>
@@ -570,7 +570,7 @@ console.log(obj.name); // "John"
             </div>
             <div id="vue" class="title" name="vue_title">
                 <div class="title_text">
-                    <a href="#s4"># Vue</a><a href="#s4_1"># Vue项目</a><a href="#s4_2"># Element</a>
+                    <a href="#s4"># Vue</a><a href="#s4_1"># Element</a><a href="#s4_2"># Axios2</a><a href="#s4_3"># Nginx</a>
                 </div>
                 <div class="title_to_header">
                     <a href="#header">TOP</a>
@@ -792,8 +792,6 @@ console.log(obj.name); // "John"
                         })
                     </script>
                 </div>
-            </div>
-            <div id="s4_1" class="section" name="vue_section">
                 <div class="block">
                     <h2>Vue项目</h2>
                     <h3>创建项目</h3>
@@ -815,8 +813,100 @@ vue create my-project
                     <p>详细的目录结构请参考官方文档：<a href="https://cli.vuejs.org/zh/guide/directory-structure.html" target="_blank">https://cli.vuejs.org/zh/guide/directory-structure.html</a></p>
                     <p>详细的教程请参考官方文档<a href="https://cn.vuejs.org/" target="_blank">https://cn.vuejs.org/</a></p>
                 </div>
+                <div class="block">
+                    <h2>Vue路由</h2>
+                    <h3>安装</h3>
+                    <p>npm 安装：</p>
+                    <pre>
+npm install vue-router -S
+                    </pre>
+                    <p>yarn 安装：</p>
+                    <pre>
+yarn add vue-router
+                    </pre>
+                    <p>也可以在创建Vue项目时选择安装，具体请参考官方文档：<a href="https://router.vuejs.org/zh/" target="_blank">https://router.vuejs.org/zh/</a></p>
+                    <h3>使用</h3>
+                    <p>创建路由实例：</p>
+                    <pre>
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  { path: '/contact', component: Contact }
+];
+
+const router = new VueRouter({
+  routes // short for `routes: routes`
+});
+
+export default router;
+                    </pre>
+                    <p>在入口文件中使用：</p>
+                    <pre>
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App)
+});
+                    </pre>
+                    <p>在视图组件中使用：</p>
+                    <pre>
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;{{ $route.params.id }}&lt;/h1&gt;
+    &lt;router-link to="/"&gt;Home&lt;/router-link&gt;
+    &lt;router-link to="/about"&gt;About&lt;/router-link&gt;
+    &lt;router-link to="/contact"&gt;Contact&lt;/router-link&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+                        </pre>
+                    <p>效果：</p>
+                    <div id="app8">
+                        <h1>{{ $route.params.id }}</h1>
+                        <router-link to="/">Home</router-link>
+                        <router-link to="/about">About</router-link>
+                        <router-link to="/contact">Contact</router-link>
+
+                        <router-view></router-view>
+                    </div>
+                    <script>
+                        import Vue from 'vue';
+                        import VueRouter from 'vue-router';
+                        import Home from './views/Home.vue';
+                        import About from './views/About.vue';
+                        import Contact from './views/Contact.vue';
+
+                        Vue.use(VueRouter);
+
+                        const routes = [
+                            { path: '/', component: Home },
+                            { path: '/about', component: About },
+                            { path: '/contact', component: Contact }
+                        ];
+
+                        const router = new VueRouter({
+                            routes // short for `routes: routes`
+                        });
+
+                        new Vue({
+                            el: '#app8',
+                            router,
+                            data: {
+                                message: 'Hello, world!'
+                            }
+                        })
+                    </script>
+                </div>
             </div>
-            <div id="s4_2" class="section" name="vue_section">
+            <div id="s4_1" class="section" name="vue_section">
                 <div class="block">
                     <h2>Element</h2>
                     <h6>Element 是一套基于 Vue.js 2.0 的桌面端组件库，提供了完善的基础组件以及丰富的业务组件，助力开发者快速搭建高质量的、高可靠的桌面端应用。</h6>
@@ -853,14 +943,19 @@ export default {
                     <p>具体使用方法请参考官方文档：<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank">https://element.eleme.cn/#/zh-CN/component/installation</a></p>
                 </div>
             </div>
-            <div id="s5" class="section">
-                    <div id="Axios2" class="title">
-                        <div class="title_text"><a href="#header"># Axios2</a></div>
-                    </div>
+            <div id="s4_2" class="section" name="vue_section">
                 <div class="block">
                     <h2>Axios2</h2>
                     <h6> Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。它是前端向后端发送请求的最佳选择。</h6>
                     <h3>安装</h3>
+                    <p>npm 安装：</p>
+                    <pre>
+npm install axios -S
+                    </pre>
+                    <p>yarn 安装：</p>
+                    <pre>
+yarn add axios
+                    </pre>
                     <p>官网：</p>
                     <a href="https://axios.nodejs.cn/" target="_blank">https://axios.nodejs.cn/</a>
                     <p>下载 js 文件：(0.18.0版本)</p>
@@ -942,6 +1037,51 @@ axios.post('https://jsonplaceholder.typicode.com/todos', {
                             })
                         }
                     </script>
+                </div>
+            </div>
+            <div id="s4_3" class="section" name="vue_section">
+                <div class="block">
+                    <h2>Nginx</h2>
+                    <h6>Nginx 是一个高性能的 HTTP 和反向代理服务器.</h6>
+                    <h3>安装</h3>
+                    <p>下载安装包：</p>
+                    <a href="https://nginx.org/en/download.html" target="_blank">https://nginx.org/en/download.html</a>
+                    <h3>配置</h3>
+                    <p>打开 nginx.conf 文件，找到 http 部分，修改配置：</p>
+                    <pre>
+http {
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        location /api {
+            proxy_pass http://localhost:3000;
+        }
+    }
+}
+                    </pre>
+                    <p>解释：</p>
+                    <ul>
+                        <li>listen：监听端口号</li>
+                        <li>server_name：域名</li>
+                        <li>location /：配置网站的默认访问路径</li>
+                    </ul>
+                    <h3>启动</h3>
+                    <p>打开命令行，切换到 nginx 安装目录，输入命令：</p>
+                    <pre>
+start nginx
+                    </pre>
+                    <h3>测试</h3>
+                    <p>打开浏览器，输入地址：</p>
+                    <pre>
+http://localhost/api/
+                    </pre>
+                    <p>如果看到返回的数据，说明配置成功。</p>
                 </div>
             </div>
         </div>
