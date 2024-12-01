@@ -37,12 +37,16 @@ function show_vue() {
         titles[i].style.display = "flex";
     }
 }
-function show_axios2() {
+function show_maven() {
     hide_all();
-    var Axios2 = document.getElementById("Axios2");
-    var s5 = document.getElementById("s5");
-    Axios2.style.display = "flex";
-    s5.style.display = "block";
+    var sections = document.getElementsByName("maven_section");
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = "block";
+    }
+    var titles = document.getElementsByName("maven_title");
+    for (var i = 0; i < titles.length; i++) {
+        titles[i].style.display = "flex";
+    }
 }
 function hide_all() {
     var titles = document.getElementsByClassName("title");

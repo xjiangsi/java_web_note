@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVA_WEB NOTE</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- 包含 Prism.js 的 CSS 文件 -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" /> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="js/vue.js"></script>
     <script src="js/axios-0.18.0.js"></script>
 </head>
@@ -13,7 +16,7 @@
         <div class="header_inner">
             <span><h3><a onclick="show_java_web_note()">JAVA_WEB_NOTE</a></h3></span>
                 <div class="header_links">
-                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span>
+                    <span><a onclick="show_html()">HTML</a></span><span><a onclick="show_javascript()">JavaScript</a></span><span><a onclick="show_vue()">Vue</a></span><span><a onclick="show_maven()">Maven</a></span>
                 </div>
             </h3>
         </div>
@@ -160,7 +163,7 @@ git branch -d new_branch
                     <p>th: 定义表头单元格</p>
                     <p>td: 定义数据单元格</p>
                     <h3>示例</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;table border="1" cellspacing="0" cellpadding="0"&gt;
     &lt;tr&gt;
         &lt;th&gt;姓名&lt;/th&gt;
@@ -173,7 +176,7 @@ git branch -d new_branch
         &lt;td&gt;北京&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <table border="1" cellspacing="0" cellpadding="0">
                         <tr>
@@ -204,7 +207,7 @@ git branch -d new_branch
                     <p>progress: 定义进度条</p>
                     <p>meter: 定义度量尺</p>
                     <h3>示例</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;form action="submit.php" method="post"&gt;
     &lt;label for="name"&gt;姓名:&lt;/label&gt;
     &lt;input type="text" id="name" name="name"&gt;
@@ -224,7 +227,7 @@ git branch -d new_branch
     &lt;br&gt;
     &lt;button type="submit"&gt;提交&lt;/button&gt;
 &lt;/form&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <form action="submit.php" method="post">
                         <label for="name">姓名:</label>
@@ -255,7 +258,7 @@ git branch -d new_branch
                     <p>dt: 定义描述列表项目</p>
                     <p>dd: 定义描述列表描述</p>
                     <h3>示例</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;ul&gt;
     &lt;li&gt;苹果&lt;/li&gt;
     &lt;li&gt;香蕉&lt;/li&gt;
@@ -272,7 +275,7 @@ git branch -d new_branch
     &lt;dt&gt;CSS&lt;/dt&gt;
     &lt;dd&gt;层叠样式表&lt;/dd&gt;
 &lt;/dl&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <ul>
                         <li>苹果</li>
@@ -305,12 +308,12 @@ git branch -d new_branch
                 </div>
                 <div class="block">
                     <h2>函数的定义</h2>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 function add(a, b) {
     return a + b;
 }
                     </code></pre>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var add = function(a, b) {
     return a + b;
 }
@@ -320,7 +323,7 @@ var add = function(a, b) {
                 <div class="block">
                     <h2>数组</h2>
                     <h3>数组的创建</h3>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var arr = new Array();
 var arr = new Array(10);
 var arr = [1, 2, 3];
@@ -335,7 +338,7 @@ var arr = ["apple", "banana", "orange"];
                     <p>sort: 对数组元素进行排序</p>
                     <p>reverse: 反转数组元素的顺序</p>
                     <p>join: 将数组元素转换为字符串</p>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var arr = [1, 3, 2];
 arr.push(4); // [1, 3, 2, 4]
 arr.pop(); // 4
@@ -349,7 +352,7 @@ arr.join("-"); // "apple-2-0"
                     <h3>遍历数组</h3>
                     <p>for...in: 遍历数组的键值</p>
                     <p>forEach: 遍历数组的元素</p>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var arr = [1, 2, 3];
 // for...in
 for (var i in arr) { console.log(arr[i]); }
@@ -363,7 +366,7 @@ arr.forEach((e) => { console.log(e); });
                 <div class="block">
                     <h2>字符串</h2>
                     <h3>字符串的创建</h3>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var str = "Hello, world!";
 var str = new String("Hello, world!");
 var str = String("Hello, world!");
@@ -384,7 +387,7 @@ var str = String("Hello, world!");
                     <p>toLowerCase: 转换为小写</p>
                     <p>toUpperCase: 转换为大写</p>
                     <p>trim: 去除字符串两端的空白字符</p>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var str = "Hello, world!";
 console.log(str.charAt(0)); // "H"
 console.log(str.charCodeAt(0)); // 72
@@ -408,25 +411,25 @@ console.log(str.trim()); // "Hello, world!"
                     <h2>JSON</h2>
                     <h6>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，它基于ECMAScript的一个子集。它是一种基于文本的、可读性高的、占用空间小的的数据交换格式。</h6>
                     <h3>JSON的创建</h3>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var obj = {name: "John", age: 30, city: "New York"};
 var json = JSON.stringify(obj);
 console.log(json); // {"name":"John","age":30,"city":"New York"}
                     </code></pre>
                     <h3>JSON的解析</h3>
-                    <pre><code>
+                    <pre><code class="language-javascript">
 var json = '{"name":"John","age":30,"city":"New York"}';
 var obj = JSON.parse(json);
 console.log(obj.name); // "John"
                     </code></pre>
                     <p>JSON.stringify()方法用于将JavaScript对象转换为JSON字符串。</p>
                     <p>JSON.parse()方法用于将JSON字符串转换为JavaScript对象。</p>
-                    <pre><code>
-                        var obj = {name: "John", age: 30, city: "New York"};
-                        var json = JSON.stringify(obj);
-                        console.log(json); // {"name":"John","age":30,"city":"New York"}
-                        var obj2 = JSON.parse(json);
-                        console.log(obj2.name); // "John"
+                    <pre><code class="language-javascript">
+var obj = {name: "John", age: 30, city: "New York"};
+var json = JSON.stringify(obj);
+console.log(json); // {"name":"John","age":30,"city":"New York"}
+var obj2 = JSON.parse(json);
+console.log(obj2.name); // "John"
                     </code></pre>
                     <h3>value的数据类型</h3>
                     <p>数字：整数或浮点数</p>
@@ -447,7 +450,7 @@ console.log(obj.name); // "John"
                     <p>screen: 屏幕信息</p>
                     <p>document: 文档对象</p>
                     <h3>示例</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;script&gt;
     console.log(window.innerWidth); // 窗口宽度
     console.log(location.href); // 页面地址
@@ -455,7 +458,7 @@ console.log(obj.name); // "John"
     console.log(screen.width); // 屏幕宽度
     console.log(document.title); // 文档标题
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：(在控制台看)</p>
                     <script>
                         console.log(window.innerWidth); // 窗口宽度
@@ -481,14 +484,14 @@ console.log(obj.name); // "John"
                     <p>innerHTML: 获取或设置元素的innerHTML</p>
                     <p>style: 获取或设置元素的样式</p>
                     <h3>获取元素对象</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="box"&gt;&lt;/div&gt;
 &lt;script&gt;
     var box = document.getElementById("box");
     box.innerHTML = "Hello, world!";
     box.style.backgroundColor = "red";
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <div id="box"></div>
                     <script>
@@ -512,7 +515,7 @@ console.log(obj.name); // "John"
                     <p>keyup: 键盘松开事件</p>
                     <p>keypress: 键盘输入事件</p>
                     <h3>事件绑定</h3>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;input type="button" id="btn" value="按钮"&gt;
 &lt;script&gt;
     var btn = document.getElementById("btn");
@@ -526,7 +529,7 @@ console.log(obj.name); // "John"
         console.log("按钮被点击了！");
     }
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <input type="button" id="btn" value="按钮">
                     <script>
@@ -547,7 +550,7 @@ console.log(obj.name); // "John"
                     <h2>定时器</h2>
                     <p>setTimeout: 延迟执行函数</p>
                     <p>setInterval: 循环执行函数</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;script&gt;
     setTimeout(function() {
         console.log("3秒后执行");
@@ -556,7 +559,7 @@ console.log(obj.name); // "John"
         console.log("每隔1秒执行");
     }, 1000);
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <script>
                         setTimeout(function() {
@@ -592,7 +595,7 @@ console.log(obj.name); // "John"
                     <h2>Vue指令</h2>
                     <h3>v-text</h3>
                     <p>绑定元素的textContent。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;{{ message }}&lt;/div&gt;
 &lt;script&gt;
     var app = new Vue({
@@ -602,7 +605,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app">{{ message }}</div>
                     <script>
@@ -615,7 +618,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-bind</h3>
                     <p>绑定元素的属性。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;
     &lt;img v-bind:src="imageUrl"&gt;
 &lt;/div&gt;
@@ -627,7 +630,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app2">{{ message }}</div>
                     <script>
@@ -640,7 +643,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-model</h3>
                     <p>实现表单输入和应用状态之间的双向绑定。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;
     &lt;input v-model="message"&gt;
     &lt;p&gt;{{ message }}&lt;/p&gt;
@@ -653,7 +656,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app4">
                         <input v-model="message">
@@ -669,7 +672,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-else-if</h3>
                     <p>条件性地渲染元素。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;
     &lt;p v-if="type === 'A'"&gt;类型A&lt;/p&gt;
     &lt;p v-else-if="type === 'B'"&gt;类型B&lt;/p&gt;
@@ -683,7 +686,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app5">
                         <p v-if="type === 'A'">类型A</p>
@@ -700,7 +703,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-show</h3>
                     <p>条件性地展示元素。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;
     &lt;p v-show="show"&gt;Hello, world!&lt;/p&gt;
 &lt;/div&gt;
@@ -712,7 +715,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app6">
                         <p v-show="show">Hello, world!</p>
@@ -727,7 +730,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-for</h3>
                     <p>遍历数组或对象，绑定元素。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;ul id="app"&gt;
     &lt;li v-for="item in items"&gt;{{ item.text }}&lt;/li&gt;
 &lt;/ul&gt;
@@ -743,7 +746,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <ul id="app7">
                         <li v-for="item in items">{{ item.text }}</li>
@@ -762,7 +765,7 @@ console.log(obj.name); // "John"
                     </script>
                     <h3>v-on</h3>
                     <p>绑定事件监听器。</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;div id="app"&gt;
     &lt;button v-on:click="sayHello"&gt;点击我&lt;/button&gt;
 &lt;/div&gt;
@@ -776,7 +779,7 @@ console.log(obj.name); // "John"
         }
     })
 &lt;/script&gt;
-                    </pre>
+                    </code></pre>
                     效果：
                     <div id="app">
                         <button v-on:click="sayHello">点击我</button>
@@ -796,10 +799,10 @@ console.log(obj.name); // "John"
                     <h2>Vue项目</h2>
                     <h3>创建项目</h3>
                     <p>使用Vue-cli创建项目：</p>
-                    <pre>
+                    <pre><code class="language-html">
 npm install -g @vue/cli
 vue create my-project
-                    </pre>
+                    </code></pre>
                     <h3>目录结构</h3>
                     <ul>
                         <li>public：静态资源目录</li>
@@ -827,7 +830,7 @@ yarn add vue-router
                     <p>也可以在创建Vue项目时选择安装，具体请参考官方文档：<a href="https://router.vuejs.org/zh/" target="_blank">https://router.vuejs.org/zh/</a></p>
                     <h3>使用</h3>
                     <p>创建路由实例：</p>
-                    <pre>
+                    <pre><code class="language-javascript">
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
@@ -844,9 +847,9 @@ const router = new VueRouter({
 });
 
 export default router;
-                    </pre>
+                    </code></pre>
                     <p>在入口文件中使用：</p>
-                    <pre>
+                    <pre><code class="language-javascript">
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -855,9 +858,9 @@ new Vue({
   router,
   render: h => h(App)
 });
-                    </pre>
+                    </code></pre>
                     <p>在视图组件中使用：</p>
-                    <pre>
+                    <pre><code class="language-html">
 &lt;template&gt;
   &lt;div&gt;
     &lt;h1&gt;{{ $route.params.id }}&lt;/h1&gt;
@@ -867,7 +870,7 @@ new Vue({
   &lt;/div&gt;
 &lt;/template&gt;
 
-                        </pre>
+                    </code></pre>
                     <p>效果：</p>
                     <div id="app8">
                         <h1>{{ $route.params.id }}</h1>
@@ -921,14 +924,14 @@ yarn add element-ui
                     </pre>
                     <h3>使用</h3>
                     <p>全局引入：</p>
-                    <pre>
+                    <pre><code class="language-javascript">
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
-                    </pre>
+                    </code></pre>
                     <p>按需引入：</p>
-                    <pre>
+                    <pre><code class="language-javascript">
 import { Button, Input } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -939,7 +942,7 @@ export default {
     'el-input': Input
   }
 }
-                    </pre>
+                    </code></pre>
                     <p>具体使用方法请参考官方文档：<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank">https://element.eleme.cn/#/zh-CN/component/installation</a></p>
                 </div>
             </div>
@@ -964,7 +967,7 @@ yarn add axios
                 <div class="block">
                     <h2>使用</h2>
                     <h3>GET请求</h3>
-                    <pre>
+                    <pre><code class="language-javascript">
 // axios({
 //     method: 'get',
 //     url: 'https://jsonplaceholder.typicode.com/todos/1'
@@ -975,7 +978,7 @@ yarn add axios
 axios.get('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
     console.log(response.data);
 })
-                    </pre>
+                    </code></pre>
                     效果：
                     <input type="button" value="GET请求" onclick="get()">
                     <script>
@@ -994,7 +997,7 @@ axios.get('https://jsonplaceholder.typicode.com/todos/1').then(function (respons
                         }
                     </script>
                     <h3>POST请求</h3>
-                    <pre>
+                    <pre><code class="language-javascript">
 // axios({
 //     method: 'post',
 //     url: 'https://jsonplaceholder.typicode.com/todos',
@@ -1012,7 +1015,7 @@ axios.post('https://jsonplaceholder.typicode.com/todos', {
 }).then(function (response) {
     console.log(response.data);
 })
-                    </pre>
+                    </code></pre>
                     效果：
                     <input type="button" value="POST请求" onclick="post()">
                     <script>
@@ -1084,11 +1087,110 @@ http://localhost/api/
                     <p>如果看到返回的数据，说明配置成功。</p>
                 </div>
             </div>
+            <div id="maven" class="title" name="maven_title">
+                <div class="title_text">
+                    <a href="#header"># Maven</a>
+                </div>
+            </div>
+            <div id="s5" class="section" name="maven_section">
+                <div class="block">
+                    <h2>Maven</h2>
+                    <h3>安装</h3>
+                    <p>下载安装包：</p>
+                    <a href="https://maven.apache.org/download.cgi" target="_blank">https://maven.apache.org/download.cgi</a>
+                    <h3>配置</h3>
+                    <p>解压安装包，将 bin 目录添加到环境变量。</p>
+                    <h3>创建Maven项目</h3>
+                    <p>直接打开IDEA，选择创建Maven项目，填写项目信息即可。</p>
+                    <h3>导入Maven项目</h3>
+                    <p>在IDEA中，选择File-Open-Project，选择pom.xml文件即可。</p>
+                    <h3>Maven依赖管理</h3>
+                    <p>依赖配置</p>
+                    <p>Maven依赖网站：<a href="https://mvnrepository.com/" target="_blank">https://mvnrepository.com/</a></p>
+                    <pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+                    </code></pre>
+                    <p>依赖传递</p>
+                    <pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+                    </code></pre>
+                    <p>解释：groupId：依赖的groupId；artifactId：依赖的artifactId；version：依赖的版本号；scope：依赖的范围，可选值有compile、test、provided、runtime、system。</p>
+                    <p>排除依赖</p>
+                    <pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;commons-logging&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+                    </code></pre>
+                    <p>解释：exclusions：排除依赖的groupId和artifactId。</p>
+                    <p>依赖范围</p>
+                    <pre><code class="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;4.3.11.RELEASE&lt;/version&gt;
+    &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+                    </code></pre>
+                    <p>解释：scope：依赖的范围，可选值有compile、test、provided、runtime、system。<br/>
+                        scope的作用范围：compile（默认）、test、provided(主程序，测试时运行)、runtime(测试，打包时运行)、system。</p>
+                    <h3>Maven的生命周期</h3>
+                    <p>clean：清理项目</p>
+                    <p>default：默认的生命周期，相当于clean、site、validate、compile、test、package、verify、install、deploy。</p>
+                    <p>site：生成项目报告</p>
+                    <p>compile：编译项目</p>
+                    <p>test：测试项目</p>
+                    <p>package：打包项目</p>
+                    <p>install：安装项目</p>
+                    <p>deploy：部署项目</p>
+                </div>
+            </div>
         </div>
     </div>
     <!--
     <div class="footer">Copyright © 2024 JAVA_WEB_NOTE. All rights reserved.</div>
     -->
     <script src="js/my_js.js"></script>
+    <!-- 包含 Prism.js 的 JavaScript 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <!-- 包含 XML 语言支持（如果需要的话，因为 Prism.js 可能默认不包含所有语言的支持） -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-xml.min.js"></script>
 </body>
 </html>
